@@ -1,4 +1,5 @@
 import { useLanguage } from '../providers/LanguageProvider';
+import { Link } from 'react-router-dom';
 
 export function Footer(): JSX.Element {
   const { language } = useLanguage();
@@ -26,16 +27,16 @@ export function Footer(): JSX.Element {
           <h4>{isArabic ? 'روابط سريعة' : 'Quick Links'}</h4>
           <ul>
             <li>
-              <a href="/services">{isArabic ? 'الخدمات' : 'Services'}</a>
+              <Link to="/services">{isArabic ? 'الخدمات' : 'Services'}</Link>
             </li>
             <li>
-              <a href="/booking">{isArabic ? 'الحجز' : 'Booking'}</a>
+              <Link to="/booking">{isArabic ? 'الحجز' : 'Booking'}</Link>
             </li>
             <li>
-              <a href="/gallery">{isArabic ? 'الصور' : 'Gallery'}</a>
+              <Link to="/gallery">{isArabic ? 'الصور' : 'Gallery'}</Link>
             </li>
             <li>
-              <a href="/contact">{isArabic ? 'اتصل بنا' : 'Contact'}</a>
+              <Link to="/contact">{isArabic ? 'اتصل بنا' : 'Contact'}</Link>
             </li>
           </ul>
         </div>
@@ -59,10 +60,10 @@ export function Footer(): JSX.Element {
           <h4>{isArabic ? 'قانوني' : 'Legal'}</h4>
           <ul>
             <li>
-              <a href="/privacy">{isArabic ? 'سياسة الخصوصية' : 'Privacy Policy'}</a>
+              <Link to="/privacy">{isArabic ? 'سياسة الخصوصية' : 'Privacy Policy'}</Link>
             </li>
             <li>
-              <a href="/terms">{isArabic ? 'شروط الاستخدام' : 'Terms of Use'}</a>
+              <Link to="/terms">{isArabic ? 'شروط الاستخدام' : 'Terms of Use'}</Link>
             </li>
           </ul>
         </div>

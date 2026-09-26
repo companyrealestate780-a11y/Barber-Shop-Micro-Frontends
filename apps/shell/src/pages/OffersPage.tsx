@@ -1,4 +1,5 @@
 import { useLanguage } from '../providers/LanguageProvider';
+import { Link } from 'react-router-dom';
 
 const offers = [
   {
@@ -81,9 +82,9 @@ export function OffersPage(): JSX.Element {
               <p className="offer-validity" style={{ color: offer.textColor, opacity: 0.7 }}>
                 {isArabic ? offer.validAr : offer.valid}
               </p>
-              <a href="/booking" className="cta-button" style={{ display: 'block', textAlign: 'center', textDecoration: 'none' }}>
+              <Link to="/booking" className="cta-button" style={{ display: 'block', textAlign: 'center', textDecoration: 'none' }}>
                 {isArabic ? 'احجز الآن' : 'Book Now'}
-              </a>
+              </Link>
             </div>
           ))}
         </div>

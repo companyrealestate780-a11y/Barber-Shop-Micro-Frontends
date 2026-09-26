@@ -6,15 +6,35 @@
 
 /* === Global Reset (when running standalone) === */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --scrollbar-thumb: rgba(182, 106, 60, 0.68);
+  --scrollbar-thumb-hover: #b66a3c;
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) transparent;
+}
+* { scrollbar-width: thin; scrollbar-color: var(--scrollbar-thumb) transparent; }
+*::-webkit-scrollbar { width: 8px; height: 8px; }
+*::-webkit-scrollbar-track,
+*::-webkit-scrollbar-corner { background: transparent; }
+*::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background-clip: padding-box;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+  border-width: 1px;
+}
 html { font-size: 16px; }
 body { font-family: 'Tajawal', sans-serif; background-color: #f8f5f0; color: #211e1b; line-height: 1.5; -webkit-font-smoothing: antialiased; transition: background-color 0.3s ease, color 0.3s ease; }
 h1, h2, h3, h4, h5, h6 { font-family: 'Cairo', sans-serif; font-weight: 700; line-height: 1.2; }
-::-webkit-scrollbar { width: 10px; height: 10px; }
-::-webkit-scrollbar-track { background: #f8f5f0; }
-::-webkit-scrollbar-thumb { background: #b66a3c; border-radius: 5px; }
-::-webkit-scrollbar-thumb:hover { background: #c97f4f; }
 html.dark-theme body { background-color: #1a1614; color: #f8f5f0; }
-html.dark-theme ::-webkit-scrollbar-track { background: #1a1614; }
+html.dark-theme {
+  --scrollbar-thumb: rgba(201, 127, 79, 0.7);
+  --scrollbar-thumb-hover: #c97f4f;
+  scrollbar-color: var(--scrollbar-thumb) transparent;
+}
 
 /* ============================================
    Services Container
