@@ -55,13 +55,16 @@
    Header & Navigation
    ============================================ */
 .header {
-  background-color: #171412;
+  background: rgba(23, 20, 18, 0.94);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
   color: #ffffff;
-  padding: 16px 0;
+  padding: 12px 0;
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  border-bottom: 1px solid rgba(231, 216, 197, 0.1);
+  box-shadow: 0 10px 30px rgba(23, 20, 18, 0.14);
 }
 
 .header-container {
@@ -69,21 +72,28 @@
   margin: 0 auto;
   padding: 0 24px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 32px;
+  gap: 24px;
+  min-height: 52px;
+  position: relative;
 }
 
 .logo {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 4px;
+  align-items: flex-start;
+  gap: 2px;
   text-decoration: none;
   color: inherit;
   font-weight: bold;
   white-space: nowrap;
   min-width: fit-content;
+  transition: transform 220ms ease, opacity 220ms ease;
+}
+
+.logo:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
 }
 
 .logo-ar {
@@ -102,15 +112,21 @@
 
 .nav {
   flex: 1;
+  display: flex;
+  justify-content: center;
 }
 
 .nav-list {
   display: flex;
-  gap: 20px;
+  align-items: center;
+  gap: 3px;
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 5px;
   flex-wrap: nowrap;
+  border: 1px solid rgba(231, 216, 197, 0.1);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.045);
 }
 
 .nav-item {
@@ -118,58 +134,123 @@
 }
 
 .nav-link {
+  display: block;
   color: inherit;
   text-decoration: none;
   font-size: 13px;
   font-weight: 500;
-  transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1);
-  padding: 8px 0;
-  border-bottom: 2px solid transparent;
+  padding: 9px 13px;
+  border-radius: 999px;
   white-space: nowrap;
+  opacity: 0.78;
+  transition: color 200ms ease, background-color 200ms ease, opacity 200ms ease, transform 200ms ease;
 }
 
-.nav-link:hover {
-  border-bottom-color: #b66a3c;
+.nav-link:hover,
+.nav-link:focus-visible {
+  color: #ffffff;
+  background: rgba(182, 106, 60, 0.2);
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+.nav-link.active {
+  color: #ffffff;
+  background: #b66a3c;
+  box-shadow: 0 5px 14px rgba(182, 106, 60, 0.25);
+  opacity: 1;
 }
 
 .header-actions {
   display: flex;
-  gap: 12px;
+  gap: 6px;
   align-items: center;
   flex-shrink: 0;
+  padding: 4px;
+  border: 1px solid rgba(231, 216, 197, 0.1);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.045);
 }
 
-.header-icon-btn {
+.header-icon-btn,
+.theme-toggle {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 38px;
+  height: 38px;
   color: inherit;
   background: transparent;
   border: none;
   cursor: pointer;
-  opacity: 0.8;
-  transition: opacity 200ms;
-  padding: 4px;
+  border-radius: 50%;
+  opacity: 0.78;
+  transition: color 200ms ease, background-color 200ms ease, opacity 200ms ease, transform 200ms ease;
   text-decoration: none;
 }
 
-.header-icon-btn:hover {
+.header-icon-btn:hover,
+.header-icon-btn:focus-visible,
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  background: rgba(182, 106, 60, 0.2);
+  color: #ffffff;
   opacity: 1;
+  transform: translateY(-1px);
 }
 
 .lang-toggle {
   background-color: #b66a3c;
   color: white;
-  border-radius: 10px;
-  padding: 8px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  min-width: 44px;
+  height: 38px;
+  padding: 0 13px;
   font-size: 12px;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 200ms;
+  transition: background-color 200ms ease, transform 200ms ease, box-shadow 200ms ease;
 }
 
 .lang-toggle:hover {
   background-color: #c97f4f;
+  box-shadow: 0 5px 14px rgba(182, 106, 60, 0.3);
+  transform: translateY(-1px);
+}
+
+.menu-toggle {
+  display: none;
+  width: 42px;
+  height: 42px;
+  padding: 10px;
+  margin-inline-start: auto;
+  border: 1px solid rgba(231, 216, 197, 0.16);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.045);
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  margin: 4px auto;
+  border-radius: 999px;
+  background: #ffffff;
+  transition: transform 220ms ease, opacity 220ms ease;
+}
+
+.menu-toggle.is-open span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.menu-toggle.is-open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.is-open span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
 }
 
 /* ============================================

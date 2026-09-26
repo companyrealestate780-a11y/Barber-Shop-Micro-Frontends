@@ -22,13 +22,13 @@ args = "Start application"
 name = "Start application"
 author = "agent"
 
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "pnpm dev"
-waitForPort = 5000
-
 [workflows.workflow.metadata]
 outputType = "webview"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "if ! test -x apps/shell/node_modules/.bin/vite || ! test -x apps/booking-angular/node_modules/.bin/ng; then pnpm install --no-frozen-lockfile || exit 1; fi; pnpm dev"
+waitForPort = 5000
 
 [[ports]]
 localPort = 3002
