@@ -1,4 +1,42 @@
 @import '@design-tokens/core/css';
+
+/* ============================================
+   Modern Scrollbar
+   ============================================ */
+:root {
+  --scrollbar-thumb: rgba(182, 106, 60, 0.68);
+  --scrollbar-thumb-hover: #b66a3c;
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) transparent;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track,
+*::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background-clip: padding-box;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+  border-width: 1px;
+}
+
 /* ============================================
    Layout Structure
    ============================================ */
@@ -609,6 +647,11 @@ img[data-priority='true'] {
    Dark Theme – Component overrides
    ============================================ */
 html.dark-theme .header { background-color: #0d0b0a; }
+html.dark-theme {
+  --scrollbar-thumb: rgba(201, 127, 79, 0.7);
+  --scrollbar-thumb-hover: #c97f4f;
+  scrollbar-color: var(--scrollbar-thumb) transparent;
+}
 html.dark-theme .feature { background-color: #2a2522; }
 html.dark-theme .feature h3,
 html.dark-theme .section h2 { color: #e7d8c5; }
